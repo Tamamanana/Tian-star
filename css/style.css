@@ -1,0 +1,305 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+.navbar {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 50px;
+  transition: transform 0.5s ease-in-out; /* 更新这里 */
+  z-index: 1000;
+  transform: translateY(-100%);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin-left: 30px;
+}
+
+.nav-links a {
+  font-size: 25px;
+  font-family: "Protest Riot", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease; /* 平滑颜色过渡 */
+}
+
+.nav-links a:hover {
+  color: black; /* 鼠标悬停时的颜色 */
+}
+
+.logo img {
+  width: 100px; /* 或者您想要的具体宽度 */
+  height: auto; /* 保持图片的原始宽高比 */
+}
+
+.typing-effect {
+  border-right: 5px solid;
+  white-space: nowrap;
+  overflow: hidden;
+  font-family: "Protest Riot", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  animation: blink 0.75s step-end infinite;
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+.container {
+  width: 100vw;
+  height: auto;
+}
+
+section,
+#footer {
+  height: 100vh;
+  position: relative;
+  color: rgb(255, 255, 255);
+  font-size: 10vh;
+  font-family: "Protest Riot", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  text-shadow: 4px 4px rgb(46, 43, 43);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#footer {
+  height: 15vh;
+  font-size: 20vh;
+}
+
+.img {
+  overflow: hidden;
+  /* 背景图片不重复 */
+  background-repeat: no-repeat;
+  /* 背景图片位置：居中 */
+  background-position: center;
+  /* 背景图片固定 */
+  background-attachment: fixed;
+  background-size: cover;
+  /* 禁止用户误选中 */
+  user-select: none;
+}
+
+#img-one {
+  background-image: url(../images/img2.jpg);
+  background-size: cover;
+}
+
+#img-two {
+  background-image: url(../images/img4.jpg);
+}
+
+.content-one {
+  background: url(../images/img1.jpg) no-repeat fixed center;
+  background-size: cover;
+}
+
+.content-two {
+  background: url(../images/img2.jpg) no-repeat fixed center;
+  background-size: cover;
+}
+
+.content-three {
+  background: url(../images/img3.gif) no-repeat fixed center;
+  background-size: cover;
+}
+
+.text-box {
+  width: 100%;
+  height: 50%;
+  /* 绝对定位 */
+  position: absolute;
+  bottom: 25%;
+  /* 文字居中 */
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  /* 旋转中心 */
+  transform-origin: center bottom;
+  /* 扭曲斜切 */
+  transform: skew(0, -8deg);
+}
+
+.text-box .cnt {
+  display: inline-block;
+  text-align: right;
+  margin: 40px 0 10px;
+  width: 90%;
+  max-width: 990px;
+  transform-origin: right bottom;
+  transform: skew(0, 8deg);
+}
+
+.cnt h2 {
+  margin-top: 100px;
+  font-size: 36px;
+  font-family: "Protest Riot", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  text-shadow: 1px 0px 0px #323232;
+  letter-spacing: 0.3em;
+  /* 大写字母 */
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 18px;
+}
+
+.cnt p {
+  font-size: 20px;
+  line-height: 1.7;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.cnt a.btn {
+  font-size: 90%;
+  font-family: "Protest Riot", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 0.3em;
+  text-shadow: 1px 0px 0px black;
+  line-height: 2.8;
+  display: inline-block;
+  background-color: #eaeaea;
+  color: #000;
+  border: 3px solid #000;
+  white-space: nowrap;
+  text-decoration: none;
+  padding: 0 20px;
+  transition: background-color 0.3s, color 0.3s; /* 平滑过渡效果 */
+}
+/* 鼠标悬停时的按钮样式 */
+.cnt a.btn:hover {
+  background-color: #000; /* 悬停时背景色 */
+  color: #fff; /* 悬停时文字颜色 */
+}
+.social-media-icons {
+  position: absolute;
+  bottom: 20px; /* 根据需要调整距离底部的距离 */
+  left: 50%;
+  transform: translateX(-50%); /* 使用transform居中 */
+  display: flex;
+  justify-content: center; /* 水平居中图标 */
+  align-items: center;
+}
+
+.social-icon {
+  margin: 0 25px; /* 为每个图标添加水平间距，根据需要调整 */
+}
+
+.social-icon img {
+  width: 30px; /* 调整图标大小，根据需要进行修改 */
+  height: auto; /* 保持图标的宽高比 */
+}
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* 应用到元素的类 */
+.animate-slide-in {
+  animation: slideInFromRight 0.5s ease-out forwards;
+  opacity: 0; /* 初始状态不可见 */
+}
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* 应用到元素的类 */
+.animate-slide-in-left {
+  animation: slideInFromLeft 0.5s ease-out forwards;
+  opacity: 0; /* 初始状态不可见 */
+}
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in {
+  animation: slideInFromRight 0.5s ease-out forwards;
+  opacity: 0; /* 初始状态不可见，直到动画开始 */
+}
+
+/* 基础样式 */
+
+.nav-links a {
+  font-size: 1.5rem; /* 默认字体大小 */
+}
+
+/* 小屏幕设备 */
+@media screen and (max-width: 768px) {
+  .nav-links a {
+    font-size: 1rem; /* 调整字体大小 */
+  }
+
+  .navbar {
+    padding: 10px; /* 减少填充 */
+  }
+
+  .logo img {
+    width: 50px; /* 缩小logo */
+  }
+}
+
+/* 对屏幕宽度小于768px的设备应用 */
+@media screen and (max-width: 768px) {
+  .typing-effect {
+    font-size: 1.5rem; /* 在小屏幕上减小字体大小 */
+  }
+}
+
+/* 对屏幕宽度小于480px的设备应用 */
+@media screen and (max-width: 480px) {
+  .typing-effect {
+    font-size: 1rem; /* 在更小屏幕上进一步减小字体大小 */
+  }
+}

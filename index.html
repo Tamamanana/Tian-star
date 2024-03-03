@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="jp">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Cormorant+Infant:wght@700&family=DM+Serif+Display:ital@0;1&family=Inria+Serif&family=Montserrat&family=Protest+Riot&family=Roboto+Slab:wght@500&family=Roboto:wght@300&family=Shippori+Mincho+B1:wght@700&display=swap"
+    rel="stylesheet">
+  <title>BILLIE EILISH</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="logo">
+      <img src="images/logo.png" alt="">
+    </div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#video">Video</a></li>
+      <li><a href="#tour">Tour</a></li>
+    </ul>
+  </nav>
+
+  <div class="container" id="home">
+    <section id="img-one" class="img">
+      <h1 class="typing-effect" data-texts='["BILLIE EILISH", "Music Sensation", "Universal Music Japan"]'>
+      </h1>
+
+    </section>
+    <section class="content-one" id="about">
+      <div class="text-box">
+        <div class="cnt">
+          <div class="content-box">
+            <h2>ABOUT</h2>
+            <p>
+              Billie Eilish champions authenticity and self-acceptance, urging, "Be exactly who you are, and it's okay
+              not
+              to be okay." She emphasizes creativity over conformity, stating, "Success is being happy with who you are,
+              not being the best."
+            </p>
+          </div>
+          <p>
+            <a href="./about.html" class="btn">To learn more about her.</a>
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="content-two" id="video">
+      <div class="text-box">
+        <div class="cnt">
+          <div class="content-box-left">
+            <h2>VIDEO</h2>
+            <p>
+              "I've always done whatever I want and always been exactly who I am."
+            </p>
+          </div>
+
+          <p>
+            <a href="https://www.youtube.com/@BillieEilish" target="_blank" class="btn">Go watch the video</em></a>
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="content-three" id="tour">
+      <div class="text-box">
+        <div class="cnt">
+          <div class="content-box">
+            <h2>TOUR</h2>
+            <p>
+              "You have to be able to love yourself because that's when things fall into place."
+            </p>
+          </div>
+
+          <p>
+            <a href="https://www.vividseats.com/billie-eilish-tickets/performer/61742" target="_blank" class="btn">Go
+              attend</a>
+          </p>
+        </div>
+      </div>
+    </section>
+    <section id="img-two" class="img">
+      <div class="social-media-icons">
+        <a href="https://www.instagram.com/billieeilish/" target="_blank" class="social-icon"><img
+            src="images/logo1.png" alt=""></a>
+        <a href="https://www.youtube.com/@BillieEilish" target="_blank" class="social-icon"><img src="images/logo2.png"
+            alt=""></a>
+        <a href="https://open.spotify.com/intl-ja/track/7hDVYcQq6MxkdJGweuCtl9?si=fd39ec2a4445439d" target="_blank"
+          class="social-icon"><img src="images/logo3.png" alt=""></a>
+        <a href="https://ja-jp.facebook.com/billieeilish/" target="_blank" class="social-icon"><img
+            src="images/logo4.png" alt=""></a>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    window.onscroll = function () { scrollFunction() };
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+        document.querySelector(".navbar").style.transform = "translateY(0%)";
+      } else {
+        document.querySelector(".navbar").style.transform = "translateY(-100%)";
+      }
+    }
+
+    // 打字机
+    document.addEventListener('DOMContentLoaded', () => {
+      const typingElement = document.querySelector('.typing-effect');
+      const texts = JSON.parse(typingElement.getAttribute('data-texts'));
+      let textIndex = 0;
+      let charIndex = 0;
+
+      function type() {
+        if (charIndex < texts[textIndex].length) {
+          typingElement.textContent += texts[textIndex].charAt(charIndex);
+          charIndex++;
+          setTimeout(type, Math.random() * 200 + 50); // 随机延迟模拟更自然的打字效果
+        } else {
+          setTimeout(erase, 2000); // 等待一段时间后开始擦除
+        }
+      }
+
+      function erase() {
+        if (charIndex > 0) {
+          typingElement.textContent = texts[textIndex].substring(0, charIndex - 1);
+          charIndex--;
+          setTimeout(erase, Math.random() * 100 + 50); // 随机延迟模拟擦除效果
+        } else {
+          textIndex++;
+          if (textIndex >= texts.length) textIndex = 0; // 从头开始循环显示文本
+          setTimeout(type, 2000); // 等待一段时间后开始打字新文本
+        }
+      }
+
+      if (texts.length) setTimeout(type, 2000); // 初始化打字效果
+    });
+
+    document.addEventListener('DOMContentLoaded', (event) => {
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-slide-in');
+            observer.unobserve(entry.target); // 动画添加后停止观察
+          }
+        });
+      }, {
+        threshold: 0.5 // 至少有50%的元素可见时触发
+      });
+
+      // 观察.content-box
+      document.querySelectorAll('.content-box').forEach(box => {
+        observer.observe(box);
+      });
+    });
+    document.addEventListener('DOMContentLoaded', (event) => {
+      const observerLeft = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-slide-in-left');
+            observer.unobserve(entry.target); // 动画添加后停止观察
+          }
+        });
+      }, {
+        threshold: 0.5 // 至少有50%的元素可见时触发
+      });
+
+      // 观察.content-box-left
+      document.querySelectorAll('.content-box-left').forEach(box => {
+        observerLeft.observe(box);
+      });
+    });
+    document.addEventListener('DOMContentLoaded', (event) => {
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-slide-in');
+            observer.unobserve(entry.target); // 动画添加后停止观察
+          }
+        });
+      }, {
+        threshold: 0.5 // 至少有50%的元素可见时触发
+      });
+
+      // 观察所有.content-box元素
+      document.querySelectorAll('.content-box').forEach(box => {
+        observer.observe(box);
+      });
+    });
+
+  </script>
+</body>
+
+</html>

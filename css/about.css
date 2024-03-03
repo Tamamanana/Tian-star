@@ -1,0 +1,474 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 2000px;
+  overflow-x: hidden;
+  background: linear-gradient(to right, #000, #8a2be2);
+}
+
+.fadeInScroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.isVisible {
+  opacity: 1;
+  transform: none;
+}
+
+.shell {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  width: 100%;
+  height: 700px;
+  overflow: hidden;
+  clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);
+  transition: clip-path 0.5s ease;
+  position: relative;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  background: url(./1.jpg);
+  background-size: cover;
+  transform: scale(1);
+  transition: transform 0.5s ease;
+}
+
+.main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 100px;
+}
+
+.main h2 {
+  font-size: 50px;
+  margin-bottom: 40px;
+  color: #fff;
+  font-family: "Protest Riot", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.main span {
+  padding: 0 100px;
+  font-size: 30px;
+}
+
+p {
+  font-size: 16px;
+  line-height: 2.5;
+  margin: 0;
+  color: #fff;
+  font-family: "Noto Serif JP", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+p.credits {
+  font-style: italic;
+  text-indent: 0 !important;
+  margin: 1rem 0;
+}
+
+p a {
+  font-weight: bolder;
+  color: #000;
+  text-decoration: none;
+}
+
+@supports (font-variant-caps: small-caps) {
+  .multicol:first-of-type p:first-of-type {
+    font-variant-caps: small-caps;
+  }
+}
+
+p:not(:first-of-type) {
+  text-indent: 1.4rem;
+}
+
+.multicol {
+  column-count: 4;
+  column-gap: 2rem;
+}
+
+.multicol + img {
+  margin: 2rem 0;
+}
+
+article {
+  width: 80%;
+  margin: 0 auto 4rem;
+}
+
+article img {
+  width: 100%;
+}
+
+article header {
+  margin-bottom: 2.5rem;
+  padding-bottom: 4rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+}
+
+article h1 {
+  margin-top: 0;
+  font-size: 3rem;
+  color: #fff;
+  font-family: "Protest Riot", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+article h2 {
+  break-after: column;
+  font-size: 1.5rem;
+}
+
+h1,
+h2 {
+  font-family: Lato, sans-serif;
+}
+
+@media all and (max-width: 1600px) {
+  .multicol {
+    column-count: 3;
+  }
+}
+
+@media all and (max-width: 1000px) {
+  .multicol {
+    column-count: 2;
+  }
+}
+
+@media all and (max-width: 800px) {
+  article h2 {
+    break-after: avoid;
+  }
+
+  .multicol {
+    column-count: 1;
+  }
+}
+
+@media all and (max-width: 600px) {
+  body {
+    margin: 0;
+  }
+
+  article {
+    width: 100%;
+  }
+
+  .multicol {
+    padding: 0 1rem;
+  }
+
+  article header {
+    margin-bottom: 2.5rem;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
+  h1 {
+    margin-bottom: 0;
+  }
+}
+
+.navbar {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 50px;
+  transition: transform 0.5s ease-in-out;
+  /* 更新这里 */
+  z-index: 1000;
+  transform: translateY(-100%);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin-left: 30px;
+}
+
+.nav-links a {
+  font-size: 25px;
+  font-family: "Protest Riot", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  /* 平滑颜色过渡 */
+}
+
+.nav-links a:hover {
+  color: black;
+  /* 鼠标悬停时的颜色 */
+}
+
+.logo img {
+  width: 100px;
+  /* 或者您想要的具体宽度 */
+  height: auto;
+  /* 保持图片的原始宽高比 */
+}
+
+.img {
+  background-size: cover;
+  /* 确保背景图覆盖整个容器，同时保持宽高比 */
+  background-position: center;
+  /* 保证背景图在容器中居中 */
+}
+
+@media screen and (max-width: 768px) {
+  .main h2 {
+    font-size: 40px;
+    /* 在较小的屏幕上减小字体大小 */
+  }
+
+  .main span {
+    font-size: 20px;
+    padding: 0 50px;
+    /* 同时减少边距 */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .main h2 {
+    font-size: 30px;
+    /* 在更小的屏幕上进一步减小字体大小 */
+  }
+
+  .main span {
+    font-size: 18px;
+    padding: 0 20px;
+    /* 进一步减少边距 */
+  }
+
+  .nav-links li {
+    margin-left: 20px;
+    /* 减少导航链接之间的间距 */
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .nav-links a {
+    font-size: 1rem;
+    /* 调整字体大小 */
+  }
+
+  .navbar {
+    padding: 10px;
+    /* 减少填充 */
+  }
+
+  .logo img {
+    width: 50px;
+    /* 缩小logo */
+  }
+
+  .multicol p {
+    font-size: 15px;
+  }
+}
+
+.news-section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start; /* 确保标题和列表顶部对齐 */
+  gap: 100px; /* 在标题和列表之间添加一些间隙 */
+  margin-top: 80px;
+  font-family: "Noto Serif JP", serif;
+}
+
+#information-load {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* 在列表项之间添加一些间隙 */
+}
+
+#information-load li {
+  list-style: none; /* 移除列表项的默认样式 */
+}
+
+#information-load a {
+  color: white; /* 或者其他你希望的颜色 */
+  text-decoration: none; /* 移除下划线 */
+}
+
+@media screen and (max-width: 768px) {
+  .news-section {
+    flex-direction: column;
+  }
+
+  #information-load li a {
+    font-size: 14px; /* 在小屏幕上调整字体大小 */
+  }
+}
+#information-load a {
+  color: white; /* 设置默认的文字颜色为白色 */
+  text-decoration: none; /* 默认不显示下划线 */
+  transition: color 0.3s ease, text-decoration 0.3s ease; /* 平滑过渡效果 */
+}
+
+#information-load a:hover {
+  color: #8a2be2; /* 鼠标悬停时改变文字颜色为浅紫色 */
+  text-decoration: underline; /* 鼠标悬停时添加下划线 */
+}
+
+.featured-works h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 100px;
+  margin-bottom: 40px;
+  color: #fff;
+}
+
+.image-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.image-item {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  overflow: hidden;
+}
+
+.image-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7); /* 半透明覆盖层 */
+  color: #fff;
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.overlay p {
+  font-family: "Protest Riot", sans-serif;
+}
+.image-item:hover .overlay {
+  opacity: 1;
+}
+
+.image-item a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.image-item:hover img {
+  transform: scale(1.1);
+}
+
+.button-container {
+  text-align: center; /* 如果你希望按钮居中显示 */
+  margin-top: 30px; /* 根据需要调整 */
+}
+
+.youtube-button {
+  background-color: #e510da; /* YouTube的标志红色 */
+  color: #ffffff; /* 文字颜色为白色 */
+  padding: 10px 20px; /* 按钮内边距 */
+  text-decoration: none; /* 移除下划线 */
+  border-radius: 20px; /* 轻微的边框圆角 */
+  font-family: "Protest Riot", sans-serif;
+  transition: background-color 0.3s, transform 0.3s; /* 平滑的背景颜色和变换效果 */
+}
+
+.youtube-button:hover {
+  background-color: #e510da73; /* 鼠标悬停时的深红色 */
+  transform: scale(1.05); /* 鼠标悬停时轻微放大 */
+}
+
+.spotify-section {
+  background-color: #c971f1; /* 轻灰色背景，提高可读性 */
+  padding: 20px;
+  border-radius: 12px; /* 统一圆角风格 */
+  margin-top: 100px; /* 与页面其他部分保持间距 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 轻微的阴影效果 */
+}
+
+.spotify-section h2 {
+  color: #020202; /* Spotify的品牌绿色 */
+  text-align: center; /* 标题居中 */
+  margin-bottom: 20px; /* 与iframe保持间距 */
+}
+
+.music_part iframe {
+  margin-bottom: 20px; /* iframe之间的间距 */
+}
+
+.poster img {
+  display: block; /* 避免默认的inline特性引起的问题 */
+  max-width: 100%; /* 使图片响应式 */
+  height: auto; /* 保持图片原始宽高比 */
+  border-radius: 12px; /* 图片圆角 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 图片阴影 */
+}
+
+.poster {
+  text-align: center; /* 海报居中显示 */
+  margin-top: 20px; /* 与上方音乐播放器保持间距 */
+  margin-bottom: 10px;
+}
+
+.social-media-links {
+  text-align: center; /* 使链接中的内容居中 */
+  margin-top: 40px; /* 或根据需要调整 */
+  margin-bottom: 20px; /* 页面底部留出一些空间 */
+}
+
+.social-icon {
+  margin: 0 25px; /* 给图标之间添加一些间距 */
+  display: inline-block; /* 使链接以行内块的形式显示，以便它们可以水平排列 */
+}
+
+.social-icon img {
+  width: 30px; /* 或根据实际需要调整图标的大小 */
+  height: auto; /* 保持图标的原始宽高比 */
+  transition: transform 0.3s ease; /* 添加一个简单的变换效果，以提高交互性 */
+}
+
+.social-icon:hover img {
+  transform: scale(1.1); /* 鼠标悬停时图标放大 */
+}
